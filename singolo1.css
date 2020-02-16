@@ -11,12 +11,16 @@ body {
 }
 
 header {
-    top: 0;
-    position: fixed;
+    top: 0px;
+    position: absolute;
     background: #2d303a;
     width: 1020px;
     height: 95px;
     border-bottom: 6px solid #323746;
+}
+
+p {
+    letter-spacing: -0.09px;
 }
 
 #logo {
@@ -34,27 +38,28 @@ header {
 }
 
 .header-nav {
-    margin: 20px;
+    margin: 40px;
 }
 
 .navigation {
     text-transform: uppercase;
-    overflow: hidden;
     font-size: 12px;
     line-height: 6px;
-    font-weight: 700;
+    font-weight: 600;
+    text-align: right;
+    margin-top: 45px;
 }
 
 .navigation li {
-    float: right;
+    display: inline;
     list-style-type: none;
+    color: white;
 }
 
 .navigation li a {
-    display: block;
     color: white;
-    text-align: center;
-    padding: 20px;
+    padding-left: 10px;
+    text-align: left;
     text-decoration: none;
 }
 
@@ -67,9 +72,20 @@ header {
     color: #f06c64;
 }
 
+#list-dot {
+    color: #999;
+    cursor: default;
+    text-decoration: none;
+}
+
+#list-dot:hover {
+    cursor: default;
+    text-decoration: none;
+}
+
 .slider-block {
-    top: 95px;
-    position: fixed;
+    top: 55px;
+    position: relative;
     background: #f06c64;
     width: 1020px;
     height: 600px;
@@ -79,10 +95,8 @@ header {
 .slider-block-grid {
     margin: 40px;
     display: grid;
-    grid-template-columns: 16px 65px 230px 65px 483px 65px 16px;
-    grid-template-rows: 1fr;
-    justify-content: space-evenly;
-    /*align-content: center;*/
+    grid-template-columns: 16px 55px 230px 85px 483px 55px 16px;
+    grid-template-rows: 53px 458px auto;
     align-items: center;
 }
 
@@ -91,6 +105,8 @@ header {
     height: 27px;
     justify-self: start;
     grid-column: 1;
+    grid-row: 2;
+    align-self: center;
 }
 
 .slider-block img:nth-child(4) {
@@ -98,6 +114,8 @@ header {
     height: 27px;
     justify-self: end;
     grid-column: 7;
+    grid-row: 2;
+    align-self: center;
 }
 
 .slider-block img:nth-child(1):hover, .slider-block img:nth-child(4):hover {
@@ -110,8 +128,8 @@ header {
     height: 458px;
     border-radius: 27px;
     box-shadow: 25px 25px #cf5c55;
-    justify-self: center;
     grid-column: 3;
+    grid-row: 2;
 }
 
 .slider-block img:nth-child(3){
@@ -119,13 +137,14 @@ header {
     width: 458px;
     border-radius: 27px;
     box-shadow: 25px 25px #cf5c55;
-    justify-self: center;
     grid-column: 5;
+    grid-row: 2;
+    align-self: center;
 }
 
 .services-block {
-    top: 695px;
-    position: fixed;
+    top: 55px;
+    position: relative;
     background: #f2f2f2;
     width: 1020px;
     height: 501px;/*495*/
@@ -156,11 +175,12 @@ header {
 
 .services-block-grid {
     margin: 40px;
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100px 100px;
     grid-column-gap: 20px;
-    grid-row-gap: 25px;
+    grid-row-gap: 23px;
     grid-auto-flow: row;
 }
 
