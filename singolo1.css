@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: #1abc9c;
-}
-
 header {
     top: 0px;
     position: absolute;
@@ -45,7 +41,7 @@ p {
     text-transform: uppercase;
     font-size: 12px;
     line-height: 6px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: right;
     margin-top: 45px;
 }
@@ -72,8 +68,8 @@ p {
     color: #f06c64;
 }
 
-#list-dot {
-    color: #999;
+.list-dot {
+    color: #666 !important;
     cursor: default;
     text-decoration: none;
 }
@@ -84,7 +80,7 @@ p {
 }
 
 .slider-block {
-    top: 55px;
+    top: 95px;
     position: relative;
     background: #f06c64;
     width: 1020px;
@@ -92,30 +88,19 @@ p {
     border-bottom: 6px solid #ea676b;
 }
 
-.slider-block-grid {
-    margin: 40px;
-    display: grid;
-    grid-template-columns: 16px 55px 230px 85px 483px 55px 16px;
-    grid-template-rows: 53px 458px auto;
-    align-items: center;
+.slider-block img:nth-child(1), .slider-block img:nth-child(4) {
+    position: absolute;
+    width: 16px;
+    height: 27px;
+    top: 280px;
 }
 
 .slider-block img:nth-child(1) {
-    width: 16px;
-    height: 27px;
-    justify-self: start;
-    grid-column: 1;
-    grid-row: 2;
-    align-self: center;
+    left: 42px;
 }
 
 .slider-block img:nth-child(4) {
-    width: 16px;
-    height: 27px;
-    justify-self: end;
-    grid-column: 7;
-    grid-row: 2;
-    align-self: center;
+    right: 42px;
 }
 
 .slider-block img:nth-child(1):hover, .slider-block img:nth-child(4):hover {
@@ -123,27 +108,28 @@ p {
     filter: grayscale(100%);
 }
 
+.slider-block img:nth-child(2), .slider-block img:nth-child(3) {
+    position: absolute;
+    border-radius: 27px;
+    box-shadow: 25px 25px #cf5c55;
+}
+
 .slider-block img:nth-child(2){
     width: 215px;
     height: 458px;
-    border-radius: 27px;
-    box-shadow: 25px 25px #cf5c55;
-    grid-column: 3;
-    grid-row: 2;
+    left: 111px;
+    top: 53px;
 }
 
 .slider-block img:nth-child(3){
     height: 215px;
     width: 458px;
-    border-radius: 27px;
-    box-shadow: 25px 25px #cf5c55;
-    grid-column: 5;
-    grid-row: 2;
-    align-self: center;
+    right: 137px;
+    top: 174px;
 }
 
 .services-block {
-    top: 55px;
+    top: 95px;
     position: relative;
     background: #f2f2f2;
     width: 1020px;
@@ -153,7 +139,6 @@ p {
 
 .services-block h2 {
     margin-left: 40px;
-    margin-right: 0px;
     padding-top: 65px;
     padding-bottom: 30px;
     font-size: 30px;
