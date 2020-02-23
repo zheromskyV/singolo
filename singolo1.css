@@ -1,5 +1,5 @@
 * {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     letter-spacing: normal;
     margin: 0px;
     padding: 0px;
@@ -15,10 +15,6 @@ header {
     border-bottom: 6px solid #323746;
 }
 
-p {
-    letter-spacing: -0.09px;
-}
-
 #logo {
     float: left;
     text-transform: uppercase;
@@ -27,6 +23,7 @@ p {
     line-height: 6px;
     font-weight: 700;
     margin: 40px;
+    letter-spacing: -0.7px;
 }
 
 #logo span {
@@ -40,10 +37,11 @@ p {
 .navigation {
     text-transform: uppercase;
     font-size: 12px;
-    line-height: 6px;
+    line-height: 8px;
     font-weight: 700;
     text-align: right;
     margin-top: 45px;
+    letter-spacing: -0.4px;
 }
 
 .navigation li {
@@ -140,9 +138,9 @@ p {
 .services-block h2 {
     margin-left: 40px;
     padding-top: 65px;
-    padding-bottom: 30px;
+    padding-bottom: 18px;
     font-size: 30px;
-    line-height: 18px;
+    line-height: 30px;
     color: #666d89;
     font-weight: 900;
     text-align: left;
@@ -156,6 +154,7 @@ p {
     line-height: 30px;
     color: #767e9e;
     font-weight: 300;
+    letter-spacing: -0.1px;
 }
 
 .services-block-grid {
@@ -189,6 +188,7 @@ p {
     line-height: 18px;
     color: #666d89;
     font-weight: 900;
+    letter-spacing: -0.1px;
 }
 
 .grid-element p {
@@ -202,5 +202,6 @@ p {
     margin: 0px;
     padding: 0px;
     text-align: justify;
+    letter-spacing: -0.1px;
 }
 
