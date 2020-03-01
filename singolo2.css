@@ -22,7 +22,8 @@
     font-size: 30px;
     line-height: 18px;
     color: #666d89;
-    font-weight: 900;
+	font-weight: 900;
+    letter-spacing: 0.3px;
 }
 
 .portfolio p {
@@ -33,26 +34,31 @@
     line-height: 30px;
     color: #767e9e;
     font-weight: 300;
-    text-align: left;
+	text-align: left;
+    letter-spacing: -0.22px;
 }
 
 .portfolio__menu {
     padding-top: 11px;
     overflow: hidden;
     font-size: 12px;
-    line-height: 22px;
+    line-height: 19px;
     font-weight: 400;
 }
 
 .portfolio__menu li {
     float: left;
     margin-right: 10px;
-    padding: 0 7px 0;
     list-style-type: none;
     height: 22px;
     border-radius: 5px;
     border: 1px solid #666d89;
 }
+.portfolio__menu li:nth-child(1) { padding: 0 6px 0 8px; }
+.portfolio__menu li:nth-child(2) { padding: 0 6px 0 6px; }
+.portfolio__menu li:nth-child(3) { padding: 0 5px 0 5px; }
+.portfolio__menu li:nth-child(4) { padding: 0 6px 0 6px; }
+
 
 .portfolio__menu li a {
     display: block;
@@ -104,7 +110,7 @@
     color: #666d89;
     font-family: "Lato";
     font-weight: 900;
-    text-align: left;
+	text-align: left;
 }
 
 .about-us p {
@@ -115,7 +121,8 @@
     line-height: 30px;
     color: #767e9e;
     font-weight: 300;
-    text-align: justify;
+	text-align: justify;
+	letter-spacing: -0.4px;
 }
 
 .layout-3-col {
@@ -136,31 +143,33 @@
 .layout-3-col__element h3 {
     padding-top: 13px;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 19px;
     color: #666d89;
     font-weight: 900;
-    text-align: left;
+	text-align: left;
+    letter-spacing: -0.05px;
 }
 
 .layout-3-col__element p {
     padding-top: 10px;
     width: 300px;
-    height: 175px;
+    height: 76px;
     font-size: 12px;
-    line-height: 22px;
+    line-height: 21px;
     color: #767e9e;
     font-weight: 400;
-    text-align: justify;
-}
-
-.about-us__social-media {
-    display: contents;
-    padding: 0px 4px 0;
+	text-align: justify;
+	letter-spacing: -0.2px;
 }
 
 .about-us__social-media img {
+	margin: 0 4px 0 0;
     width: 32px;
     height: 32px;
     border-radius: 16px;
     background-color: #f2f2f2;
+}
+
+.about-us__social-media img:hover {
+	cursor: pointer;
 }
