@@ -64,8 +64,36 @@
 	outline: none;
 }
 
+.get-a-quote__form input::-webkit-input-placeholder {
+	font-size: 12px;
+	line-height: 22px;
+	color: #f48c8f;
+	font-weight: 400;
+}
+
+.get-a-quote__form input::-moz-placeholder {
+	font-size: 12px;
+	line-height: 22px;
+	color: #f48c8f;
+	font-weight: 400;
+}
+
+.get-a-quote__form input:last-child {
+	width: 150px;
+	margin-left: 469px;
+	text-align: center;
+	background-color: #e7554e;
+	border: 3px solid #e7554e;
+	color: #ecacae;
+}
+
+.get-a-quote__form input:last-child:hover {
+	background-color: #e75c54;
+	transition: 0.2s ease-in-out;
+}
+
 .get-a-quote__form input:focus {
-	border: 3px solid #e45c55;
+	border: 3px solid #e7534b;
 }
 
 .get-a-quote__form textarea {
@@ -85,9 +113,24 @@
 	resize: none;
 }
 
-.get-a-quote__form textarea:focus {
-	border: 3px solid #e45c55;
+.get-a-quote__form textarea::-webkit-input-placeholder {
+	font-size: 12px;
+	line-height: 22px;
+	color: #f48c8f;
+	font-weight: 400;
 }
+
+.get-a-quote__form textarea::-moz-placeholder {
+	font-size: 12px;
+	line-height: 22px;
+	color: #f48c8f;
+	font-weight: 400;
+}
+
+.get-a-quote__form textarea:focus {
+	border: 3px solid #e7534b;
+}
+
 
 .get-a-quote__contact-info h3 {
 	font-size: 18px;
