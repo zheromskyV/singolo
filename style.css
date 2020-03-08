@@ -190,7 +190,7 @@ header {
 .grid-element p {
     grid-column: 2;
     width: 219px;
-    height: 128px;
+    height: 68px;
     font-size: 12px;
     line-height: 22px;
     color: #767e9e;
@@ -198,7 +198,8 @@ header {
     margin: 0px;
     padding: 0px;
     text-align: justify;
-    letter-spacing: -0.1px;
+	letter-spacing: -0.1px;
+	overflow: hidden;
 }
 
 
@@ -291,6 +292,10 @@ header {
     background-color: #464b5e;
 }
 
+.layout-4-col img:nth-child(n+13) {
+    display: none;
+}
+
 .about-us {
 	top: 94px;
     position: relative;
@@ -344,19 +349,24 @@ header {
     color: #666d89;
     font-weight: 900;
 	text-align: left;
-    letter-spacing: -0.1px;
+	letter-spacing: -0.1px;
+	width: 300px;
+	overflow-x: hidden;
+	white-space: nowrap;
 }
 
 .layout-3-col__element p {
-    padding-top: 8px;
+	padding-top: 8px;
     width: 300px;
-    height: 73px;
+    height: 53px;
     font-size: 12px;
     line-height: 21px;
     color: #767e9e;
     font-weight: 400;
 	text-align: justify;
 	letter-spacing: -0.2px;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
 
 .about-us__social-media img {
@@ -442,7 +452,7 @@ header {
 
 .get-a-quote__form input::-moz-placeholder {
 	font-size: 12px;
-	line-height: 22px;
+	line-height: 32px;
 	color: #f48c8f;
 	font-weight: 400;
 }
