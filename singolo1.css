@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+.wrapper {
+    margin: 0 40px 0;
+}
+
 header {
     top: 0px;
     position: absolute;
@@ -17,7 +21,6 @@ header {
 
 #logo {
     float: left;
-    margin: 40px;
     text-transform: uppercase;
     color: white;
     font-size: 25px;
@@ -28,10 +31,6 @@ header {
 
 #logo span {
     color: #f06c64;
-}
-
-.header-nav {
-    margin: 40px;
 }
 
 .navigation {
@@ -136,7 +135,6 @@ header {
 }
 
 .services-block h2 {
-    margin-left: 40px;
     padding-top: 65px;
     padding-bottom: 18px;
     font-size: 30px;
@@ -147,7 +145,6 @@ header {
 }
 
 .services-block p {
-    margin-left: 40px;
     width: 940px;
     height: 57px;
     font-size: 18px;
@@ -158,7 +155,6 @@ header {
 }
 
 .services-block-grid {
-    margin: 40px;
     margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
