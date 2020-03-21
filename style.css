@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 .wrapper {
 	width: 940px;
 	margin:auto;
@@ -165,22 +169,33 @@ header {
 	display: none;
 }
 
+#slider {
+	position: relative;
+	top: 0px;
+    position: relative;
+	height: 600px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
 
 .slide {
 	display: flex;
 	width: 940px;
     position: absolute;
 	top: 0px;
+	left: 0px;
     height: 595px;
-    transition: 1.5s;
+    transition: all ease 1s;
 }
 
 .hidden-slide {
 	display: none;
-    transition: 1.5s;
-
 }
 
+.blue {
+	width: 940px;
+}
 
 .services-block {
     top: 95px;
