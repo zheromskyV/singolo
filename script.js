@@ -2,6 +2,7 @@
 
 window.onload = function() {
 	addNavScrollHandler();
+	addBurgerMenuClickHandler();
 
 	initSlider();
 	addSliderCkickHandler();
@@ -34,6 +35,32 @@ const addNavScrollHandler = () => {
 	});
 }
 
+const addBurgerMenuClickHandler = () => {
+	document.getElementById("burger-btn-wrapper").onclick = () => {
+		document.querySelectorAll(".burger-btn").forEach(b => {
+			if (b.classList.contains("burger-btn_active")) {
+				b.classList.remove("burger-btn_active");
+			} else {
+				b.classList.add("burger-btn_active");
+			}
+		});
+		document.querySelectorAll(".navigation").forEach(e => {
+			if (e.classList.contains("navigation_burger_active")) {
+				e.classList.remove("navigation_burger_active");
+			} else {
+				e.classList.add("navigation_burger_active");
+			}
+		});
+		document.querySelectorAll(".burger_logo").forEach(e => {
+			if (e.classList.contains("burger_logo_active")) {
+				e.classList.remove("burger_logo_active");
+			} else {
+				e.classList.add("burger_logo_active");
+			}
+		});
+	}
+}
+
 // slider
 
 const addSliderCkickHandler = () => {
@@ -52,63 +79,100 @@ const addSliderCkickHandler = () => {
 
 let slider = document.querySelector("#slider");
 const sliderContent = [];
-let slides = [];
+const redSlide = 0;
+const blueSlide = 1;
 let size = 940;
-let step = 0;
 let slidingBlock = false;
 
-const initSlider = () => {
-	let s = document.querySelectorAll(".slide");
-	for (let i = 0; i < s.length; i++) {
-		sliderContent.push(s[i].innerHTML);
-		s[i].remove();
-	}
-	drawSlide();
-}
 
-const drawSlide = () => {
+const initSlider = () => {
+	let slides = document.querySelectorAll(".slide");
+	for (let i = 0; i < slides.length; i++) {
+		sliderContent.push(slides[i].innerHTML);
+		slides[i].remove();
+	}
 	let div = document.createElement("div");
 	div.classList.add("slide");
-	div.innerHTML = sliderContent[step];
+	div.innerHTML = sliderContent[redSlide];
 	div.style.left = 0 + "px";
 	slider.appendChild(div);
-	if (step + 1 === sliderContent.length) {
-		step = 0;
-	} else {
-		step++;
-	}
+	drawSlideToLeft();
+	drawSlideToRight();
+}
+
+const drawSlideToRight = () => {
+	let slideToDrow = defineSlideToDraw();
+	addSlide(size, slideToDrow);
+}
+
+const drawSlideToLeft = () => {
+	let slideToDrow = defineSlideToDraw();
+	addSlide(-size, slideToDrow);
+}
+
+const defineSlideToDraw = () => {
+	let slides = document.querySelectorAll(".slide");
+	let slideToDrow;
+	slides.forEach(s => {
+		if (parseInt(s.style.left) === 0) {
+			s.childNodes.forEach(child => {
+				if (child.classList) {
+					if (child.classList.contains("red")) {
+						slideToDrow = blueSlide;
+					}
+					else if (child.classList.contains("blue")) {
+						slideToDrow = redSlide;
+					}
+				}
+			});
+		}
+	});
+	return slideToDrow;
+}
+
+const addSlide = (left, slideToDrow) => {
+	let div = document.createElement("div");
+	div.classList.add("slide");
+	div.style.left = -left + "px";
+	div.innerHTML = sliderContent[slideToDrow];
+	slider.appendChild(div);
 }
 
 const slideLeft = () => {
 	if (slidingBlock) return;
 	slidingBlock = true;
-	let slides2 = document.querySelectorAll(".slide");
-	let offset2 = 0;
-	slides2.forEach(slide => {
-		slide.style.left = offset2 * size - size + "px";
-		offset2++;
+	let slides = document.querySelectorAll(".slide");
+	slides.forEach(slide => {
+		let d = parseInt(slide.style.left);
+		slide.style.left =  d - size + "px";
 	});
-	changeSlide(slides2[0]);
-	setTimeout(() => {
-		slides2[0].remove();
-		drawSlide();
-		slidingBlock = false;
-	}, 1000);
+	changeSlide(slides[0]);
+	afterSliding();
 }
 
 const slideRight = () => {
 	if (slidingBlock) return;
 	slidingBlock = true;
-	let slides2 = document.querySelectorAll(".slide");
-	let offset2 = 0;
-	slides2.forEach(slide => {
-		slide.style.left = offset2 * size + size + "px";
-		offset2++;
+	let slides = document.querySelectorAll(".slide");
+	slides.forEach(slide => {
+		let d = parseInt(slide.style.left);
+		slide.style.left = d + size + "px";
 	});
-	changeSlide(slides2[0]);
+	changeSlide(slides[0]);
+	afterSliding();
+}
+
+const afterSliding = () => {
+	let slides = document.querySelectorAll(".slide");
 	setTimeout(() => {
-		slides2[0].remove();
-		drawSlide();
+		slides.forEach(slide => {
+			let d = parseInt(slide.style.left);
+			if (d !== 0) {
+				slide.remove();
+			}
+		});
+		drawSlideToLeft();
+		drawSlideToRight();
 		slidingBlock = false;
 	}, 1000);
 }
@@ -142,7 +206,7 @@ const changeIPhoneDisplay = (phone) => {
 	let displays = document.querySelectorAll(".iphone_off");
 	if (phone.classList.contains("iphone-vert")
 		|| phone.classList.contains("iphone-vert_off")	
-	) {
+		) {
 		if (displays[0].classList.contains("iphone-vert_off_hidden")) {
 			displays[0].classList.remove("iphone-vert_off_hidden");
 		} else {
@@ -150,7 +214,7 @@ const changeIPhoneDisplay = (phone) => {
 		}
 	} else if (phone.classList.contains("iphone-hor")
 		|| phone.classList.contains("iphone-hor_off")
-	) {
+		) {
 		if (displays[1].classList.contains("iphone-hor_off_hidden")) {
 			displays[1].classList.remove("iphone-hor_off_hidden");
 		} else {
@@ -203,6 +267,10 @@ const addPortfolioImgClickHandler = () => {
 }
 
 const activateImg = (img) => {
+	if (img.classList.contains("active-img")) {
+		img.classList.remove("active-img");
+		return;
+	}
 	let portfolio = document.querySelectorAll(".portfolio_img");
 	portfolio.forEach(p => {
 		p.classList.remove("active-img");
