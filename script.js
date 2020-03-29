@@ -36,22 +36,26 @@ const addNavScrollHandler = () => {
 }
 
 const addBurgerMenuClickHandler = () => {
+	const burgerBtn = document.querySelectorAll(".burger-btn");
+	const navigation = document.querySelectorAll(".navigation");
+	const burgerLogo = document.querySelectorAll(".burger_logo");
+
 	document.getElementById("burger-btn-wrapper").onclick = () => {
-		document.querySelectorAll(".burger-btn").forEach(b => {
+		burgerBtn.forEach(b => {
 			if (b.classList.contains("burger-btn_active")) {
 				b.classList.remove("burger-btn_active");
 			} else {
 				b.classList.add("burger-btn_active");
 			}
 		});
-		document.querySelectorAll(".navigation").forEach(e => {
+		navigation.forEach(e => {
 			if (e.classList.contains("navigation_burger_active")) {
 				e.classList.remove("navigation_burger_active");
 			} else {
 				e.classList.add("navigation_burger_active");
 			}
 		});
-		document.querySelectorAll(".burger_logo").forEach(e => {
+		burgerLogo.forEach(e => {
 			if (e.classList.contains("burger_logo_active")) {
 				e.classList.remove("burger_logo_active");
 			} else {
@@ -59,6 +63,26 @@ const addBurgerMenuClickHandler = () => {
 			}
 		});
 	}
+
+	document.querySelectorAll(".navigation li a").forEach(a => {
+		a.onclick = () => {
+			burgerBtn.forEach(b => {
+				if (b.classList.contains("burger-btn_active")) {
+					b.classList.remove("burger-btn_active");
+				}
+			});
+			navigation.forEach(e => {
+				if (e.classList.contains("navigation_burger_active")) {
+					e.classList.remove("navigation_burger_active");
+				}
+			});
+			burgerLogo.forEach(e => {
+				if (e.classList.contains("burger_logo_active")) {
+					e.classList.remove("burger_logo_active");
+				}
+			});
+		}
+	});
 }
 
 // slider
@@ -186,7 +210,7 @@ const changeSlide = (slide) => {
 			if (child.classList.contains("red")) {
 				bgColor = "#648BF0"; // blue
 				bgBorderBottom = "6px solid rgb(74, 118, 231)";
-				arsColor = "sepia(100%)";
+				arsColor = "sepia(93%)";
 			}
 			else if (child.classList.contains("blue")) {
 				bgColor = "#f06c64"; // red
@@ -249,9 +273,18 @@ const activateClickedButton = (button) => {
 
 const shufflePortfolio = () => {
 	let portfolio = document.querySelectorAll(".portfolio_img");
-	let i = 0;
+	let wasActivated = false;
+	if (portfolio[0].classList.contains("active-img")) {
+		activateImg(portfolio[0]);
+		activateImg(portfolio[portfolio.length - 1]);
+		wasActivated = true;
+	}
 	let p = portfolio[i].src;
-	for (; i < portfolio.length - 1;) {
+	for (let i = 0; i < portfolio.length - 1;) {
+		if (portfolio[i + 1].classList.contains("active-img") && !wasActivated) {
+			activateImg(portfolio[i + 1]);
+			activateImg(portfolio[i]);
+		}
 		portfolio[i].src = portfolio[++i].src;
 	}
 	portfolio[portfolio.length - 1].src = p;
@@ -283,11 +316,9 @@ const activateImg = (img) => {
 const addGetAQuoetClickHandker = () => {
 	document.querySelector(".get-a-quote__form").addEventListener("submit", (e) => {
 		e.preventDefault();
-		console.log(e);
 		showGetAQuoteMessage();
 
 		document.querySelector("#form-answer__btn").addEventListener("click", (e) => {
-			console.log(e);
 			closeGetAQuoteMessage();
 		});
 	});
@@ -299,15 +330,11 @@ const showGetAQuoteMessage = () => {
 		a.classList.remove("form-answer_hidden");
 	});
 
-	const qfSubject = document.getElementById("quote-form-subject");
-	const qfDecs = document.getElementById("quote-form-desc");
+	let qfSubject = document.getElementById("quote-form-subject");
+	let qfDecs = document.getElementById("quote-form-desc");
 	
-	if(qfSubject.value) {
-		document.getElementById("form-answer__theme").innerHTML = `Тема: ${qfSubject.value}`;
-	}
-	if(qfDecs.value) {
-		document.getElementById("form-answer__desc").innerHTML = `Описание: ${qfDecs.value}`;
-	}
+	document.getElementById("form-answer__theme").innerHTML = qfSubject.value ? `Тема: ${qfSubject.value}` : "Без темы";
+	document.getElementById("form-answer__desc").innerHTML = qfDecs.value ? `Описание: ${qfDecs.value}` : "Без описания";
 }
 
 const closeGetAQuoteMessage = () => {
