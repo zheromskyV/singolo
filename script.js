@@ -279,7 +279,7 @@ const shufflePortfolio = () => {
 		activateImg(portfolio[portfolio.length - 1]);
 		wasActivated = true;
 	}
-	let p = portfolio[i].src;
+	let p = portfolio[0].src;
 	for (let i = 0; i < portfolio.length - 1;) {
 		if (portfolio[i + 1].classList.contains("active-img") && !wasActivated) {
 			activateImg(portfolio[i + 1]);
